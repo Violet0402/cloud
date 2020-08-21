@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="cloud-api-commons" />
         <module name="cloud-consumer-order80" />
+        <module name="cloud-eureka-server7001" />
         <module name="cloud-provider-payment8001" />
       </profile>
     </annotationProcessing>
@@ -15,6 +16,7 @@
       <module name="cloud" target="1.8" />
       <module name="cloud-api-commons" target="1.8" />
       <module name="cloud-consumer-order80" target="1.8" />
+      <module name="cloud-eureka-server7001" target="1.8" />
       <module name="cloud-provider-payment8001" target="1.8" />
       <module name="provider8001" target="1.8" />
     </bytecodeTargetLevel>

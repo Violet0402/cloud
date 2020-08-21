@@ -1,6 +1,10 @@
 server:
   port: 8001
 
+spring:
+  application:
+    name: provider
+
 Spring:
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource

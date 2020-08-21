@@ -1,4 +1,4 @@
-package com.smj.Controller;
+package com.smj.controller;
 
 import com.smj.entities.CommonResult;
 import com.smj.entities.Payment;
