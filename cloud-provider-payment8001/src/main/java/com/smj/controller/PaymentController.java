@@ -4,6 +4,7 @@ import com.smj.entities.CommonResult;
 import com.smj.entities.Payment;
 import com.smj.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -21,12 +22,15 @@ public class PaymentController {
     @Resource
     private PaymentService paymentService;
 
+    @Value("${server.port}")
+    private String serverPort;
+
     @GetMapping("/get/{id}")
     public CommonResult getPayment(@PathVariable Long id){
         Payment payment = paymentService.getPaymentById(id);
         log.info("获取的payment:", payment);
         if (payment != null){
-            return new CommonResult(200, "成功", payment);
+            return new CommonResult(200, "插入成功-serverPort:"+serverPort, payment);
         }
         return new CommonResult(444, "没有对应记录");
     }
