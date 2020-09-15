@@ -18,4 +18,7 @@ public interface PaymentDao {
 
     @Insert("insert into payment (serial) values(#{payment.serial})")
     Integer create(@Param("payment") Payment payment);
+
+    @Insert("insert into tablename1 (content) values(#{content})")
+    void createEmo(String content);
 }

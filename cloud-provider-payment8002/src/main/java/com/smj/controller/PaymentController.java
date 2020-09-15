@@ -10,6 +10,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 import com.smj.service.PaymentService;
 
+import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.List;
 
@@ -62,5 +63,11 @@ public class PaymentController {
         instances.forEach(i -> log.info(i.getServiceId() + "\t" + i.getHost() + "\t" + i.getPort() + "\t" + i.getUri()));
 
         return this.discoveryClient;
+    }
+
+    @PostMapping("createEmo")
+    public CommonResult createEmo(String content){
+        paymentService.createEmo(content);
+        return new CommonResult(200,"成功");
     }
 }

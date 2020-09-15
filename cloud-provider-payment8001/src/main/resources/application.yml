@@ -15,7 +15,7 @@ Spring:
 
 mybatis:
   mapper-locations: classpath:mapper/*.xml
-  type-aliases-package: com.com.smj.entities.Payment
+  type-aliases-package: com.smj.entities.Payment
 
 eureka:
   client:

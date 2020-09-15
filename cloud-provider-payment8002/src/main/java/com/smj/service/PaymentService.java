@@ -11,4 +11,6 @@ public interface PaymentService {
     Payment getPaymentById(Long id);
 
     Integer create(Payment payment);
+
+    void createEmo(String content);
 }
