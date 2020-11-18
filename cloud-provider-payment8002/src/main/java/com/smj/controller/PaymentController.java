@@ -34,7 +34,7 @@ public class PaymentController {
     private DiscoveryClient discoveryClient;
 
     @GetMapping("/get/{id}")
-    public CommonResult getPayment(@PathVariable Long id){
+    public CommonResult getPayment(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
         log.info("获取的payment:" + payment);
         if (payment != null){
@@ -69,5 +69,10 @@ public class PaymentController {
     public CommonResult createEmo(String content){
         paymentService.createEmo(content);
         return new CommonResult(200,"成功");
+    }
+
+    @GetMapping("/lb")
+    public String getPayment(){
+        return serverPort;
     }
 }

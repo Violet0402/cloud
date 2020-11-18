@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @Author: Administrator
@@ -21,7 +22,7 @@ import java.util.List;
 @RequestMapping("/payment")
 @RestController
 @Slf4j
-public class PaymentController {
+public class PaymentController8001 {
 
     @Resource
     private PaymentService paymentService;
@@ -33,7 +34,7 @@ public class PaymentController {
     private DiscoveryClient discoveryClient;
 
     @GetMapping("/get/{id}")
-    public CommonResult getPayment(@PathVariable Long id){
+    public CommonResult getPayment(@PathVariable("id") Long id){
         Payment payment = paymentService.getPaymentById(id);
         log.info("获取的payment:" + payment);
         if (payment != null){
@@ -62,5 +63,20 @@ public class PaymentController {
         instances.forEach(i -> log.info(i.getServiceId() + "\t" + i.getHost() + "\t" + i.getPort() + "\t" + i.getUri()));
 
         return this.discoveryClient;
+    }
+
+    @GetMapping("/lb")
+    public String getPayment(){
+        return serverPort;
+    }
+
+    @GetMapping("/feign/timeout")
+    public String feignTimeout(){
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return serverPort;
     }
 }
