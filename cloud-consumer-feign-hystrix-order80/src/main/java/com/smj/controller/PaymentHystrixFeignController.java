@@ -13,7 +13,7 @@ import javax.annotation.Resource;
 
 @RestController
 @RequestMapping("/consumer")
-@DefaultProperties(defaultFallback = "paymentInfoTimeoutHandler_global")
+@DefaultProperties(defaultFallback = "payment_Global_FallbackMethod")
 public class PaymentHystrixFeignController {
     @Resource
     private PaymentHystrixFeignService paymentHystrixFeignService;
@@ -29,7 +29,7 @@ public class PaymentHystrixFeignController {
         return paymentHystrixFeignService.psymentTimeout(id);
     }
 
-    public String paymentInfoTimeoutHandler_global(Integer id){
-        return "线程池:  " + Thread.currentThread().getName()+"  paymentInfoTimeoutHandler,id:"+id+"\t"+"哈哈哈";
+    public String payment_Global_FallbackMethod(){
+        return "Global异常处理信息，请稍后再试，o(╥﹏╥)o";
     }
 }

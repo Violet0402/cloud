@@ -32,4 +32,11 @@ public class PaymentController {
         log.info("serverPort:"+serverPort+"=====result:"+result);
         return result;
     }
+
+    @GetMapping("/circuit/{id}")
+    public String paymentCircuit(@PathVariable("id") Integer id){
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("paymentCircuit接口的调用接口结果------>id:{}",id);
+        return result;
+    }
 }
