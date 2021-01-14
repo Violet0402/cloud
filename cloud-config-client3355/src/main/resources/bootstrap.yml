@@ -1,0 +1,14 @@
+#bootstrap.yml是优先级更高的，一般用于加载外部资源，客户端使用，先加载服务器的，application加载自己的
+
+server:
+  port: 3355
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      label: master #分支名称
+      name: config #配置文件名称
+      profile: dev #读取文件后缀，比如config-dev.yml config就是name，dev就是profile
+      uri: http://localhost:3344
