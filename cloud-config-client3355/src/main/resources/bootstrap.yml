@@ -12,3 +12,15 @@ spring:
       name: config #配置文件名称
       profile: dev #读取文件后缀，比如config-dev.yml config就是name，dev就是profile
       uri: http://localhost:3344
+
+#通常情况下，github上面总配置更改的话，服务端虽然改了，但是客户端并没有改变，
+#需要重新启动客户端才行，所以需要引入actuator监控模块，进行动态配置
+#然后在业务类Controller上加上RefreshScope注解，之后需要运维人员发送post请求来刷新
+#此方法的弊端就是需要每次都手动刷新，所以需要引入消息总线。
+
+#暴露监控端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

@@ -17,3 +17,11 @@ spring:
 mybatis:
   mapper-locations: classpath:mapper/*.xml
   type-aliases-package: com.smj.entities.Payment
+
+
+upload:
+  qiniu:
+    domain: "https://cdn-ssl.meb.com"
+    access-key: "vECq3gaU9nYuFCg5-XPf8vG5ia0I55XHFhFN_bYO"
+    secret-key: "HLO0bvRW0rwSDHV5J3slQ4-zbtY_OTOjTAjZMrLu"
+    bucket: "meb-com"
